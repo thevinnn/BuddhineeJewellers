@@ -1,16 +1,21 @@
-<header class="fixed top-0 left-0 w-full bg-transparent z-50">
-  <nav class="w-2/3 mx-auto mt-5">
-    <div class="flex items-center justify-between w-full">
+<header class="absolute top-0 left-0 w-full bg-transparent z-50">
+  <nav class="w-full md:w-2/3 mx-auto mt-5">
+    <div class="flex flex-col md:flex-row items-center justify-between w-full gap-4">
+
       <div class="flex items-center space-x-4">
-        <img src="cropped-BJ-logo-transparent.png" alt="">
-        <span class="text-white">Your Intelligent Choice for Fine Jewellery</span>
+        <img src="cropped-BJ-logo-transparent.png" alt="" class="h-15 md:h-20">
+        <span class="text-white text-center md:text-left text-sm md:text-xl">
+          Your Intelligent Choice for Fine Jewellery
+        </span>
       </div>
-      <div class="flex items-center space-x-6 text-white">
+
+      <div class="hidden md:flex space-x-6 text-white">
         <a href="">Home</a>
         <a href="about">About</a>
         <a href="products">Products</a>
         <a href="contact">Contact</a>
       </div>
+
     </div>
   </nav>
 </header>

@@ -1,3 +1,15 @@
+<!-- app.component.html -->
+
+<!-- Header ALWAYS on top -->
 <app-header></app-header>
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+
+<!-- Page body: main + footer in a sticky-footer layout -->
+<div class="min-h-screen flex flex-col">
+
+  <main class="flex-1">
+    <router-outlet></router-outlet>
+    <!-- or <app-home></app-home> if no routing -->
+  </main>
+
+  <app-footer></app-footer>
+</div>
