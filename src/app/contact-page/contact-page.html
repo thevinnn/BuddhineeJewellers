@@ -1,32 +1,159 @@
 <app-title></app-title>
-<div class="mt-22 ml-7">
-<div>
-  <h1 class="text-2xl font-medium font-stretch-extra-expanded">Address</h1>
-  <p>No. 39, Kandy Road, Kiribathgoda, Sri Lanka.</p>
-  <p>No.99, Lower Street, Badulla, Sri Lanka</p>
-</div>
-<div class="mt-2">
-  <h1 class="text-2xl font-medium">Inquiries</h1>
-</div>
-<div>
-  <h1 class="text-2xl font-medium">Email</h1>
-</div>
-<div>
-  <h1 class="text-2xl font-medium">Business Hours</h1>
-</div>
 
+<section class="max-w-6xl mx-auto px-4 py-8">
+  <!-- Page title -->
+  <h1 class="text-4xl font-semibold mb-6">Contact</h1>
 
-<!--Contact Form-->
-<div>
-  <h1>Send us a message</h1>
-  Full Name
-  Phone Number
-  Email
-  Message
-  <button>Submit</button>
-</div>
+  <!-- Main grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <!-- LEFT: Contact details -->
+    <div class="bg-white rounded-2xl border border-black/10 p-6">
+      <h3 class="text-2xl font-medium mb-3">Address</h3>
 
-<div>
-  <h1>Find us on Maps</h1>
-</div>
-</div>
+      <a
+        href="https://www.google.com/maps/place/Buddhinee+Jewellers/@6.978675,79.9253751,17z"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex gap-3 items-start mb-2 hover:underline"
+      >
+        <span>📍</span>
+        <span>No. 39, Kandy Road, Kiribathgoda, Sri Lanka.</span>
+      </a>
+
+      <a
+        href="https://www.google.com/maps/place/Buddhinee+Jewellers/@6.9880454,81.0584347,18.9z"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex gap-3 items-start hover:underline"
+      >
+        <span>📍</span>
+        <span>No. 99, Lower Street, Badulla, Sri Lanka.</span>
+      </a>
+
+      <h3 class="text-2xl font-medium mt-6 mb-3">Inquiries</h3>
+      <a href="tel:+94112984050" class="flex gap-3 items-center hover:underline">
+        <span>📞</span>
+        <span>+94 11 298 40 50</span>
+      </a>
+
+      <h3 class="text-2xl font-medium mt-6 mb-3">Email</h3>
+      <a
+        href="mailto:info@buddhineejewellers.lk"
+        class="flex gap-3 items-center hover:underline"
+      >
+        <span>✉️</span>
+        <span>info@buddhineejewellers.lk</span>
+      </a>
+
+      <h3 class="text-2xl font-medium mt-6 mb-2">Business Hours</h3>
+      <p class="text-black/70">Everyday — 9am – 7pm</p>
+      <p class="text-black/70">Poya Holidays — Closed</p>
+    </div>
+
+    <!-- RIGHT: Contact form -->
+    <div class="bg-white rounded-2xl border border-black/10 p-6">
+      <h3 class="text-2xl font-medium mb-4">Send us a message</h3>
+
+      <form
+        [formGroup]="form"
+        (ngSubmit)="submit()"
+        class="space-y-4"
+        novalidate
+      >
+        <!-- Full Name -->
+        <div>
+          <label class="block font-medium mb-1">
+            Full Name <span class="text-red-600">*</span>
+          </label>
+          <input
+            type="text"
+            formControlName="fullName"
+            placeholder="Full Name"
+            class="w-full rounded-xl border border-black/20 px-4 py-3 focus:outline-none focus:border-black/40"
+          />
+          @if (isInvalid('fullName')) {
+            <p class="text-sm text-red-600 mt-1">Full name is required</p>
+          }
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label class="block font-medium mb-1">Phone Number</label>
+          <input
+            type="text"
+            formControlName="phone"
+            placeholder="Phone Number"
+            class="w-full rounded-xl border border-black/20 px-4 py-3 focus:outline-none focus:border-black/40"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block font-medium mb-1">
+            Email <span class="text-red-600">*</span>
+          </label>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            class="w-full rounded-xl border border-black/20 px-4 py-3 focus:outline-none focus:border-black/40"
+          />
+          @if (isInvalid('email')) {
+            <p class="text-sm text-red-600 mt-1">Enter a valid email address</p>
+          }
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block font-medium mb-1">
+            Message <span class="text-red-600">*</span>
+          </label>
+          <textarea
+            rows="5"
+            formControlName="message"
+            placeholder="Tell us your requirement and we will get back with a quote"
+            class="w-full rounded-xl border border-black/20 px-4 py-3 focus:outline-none focus:border-black/40 resize-none"
+          ></textarea>
+          @if (isInvalid('message')) {
+            <p class="text-sm text-red-600 mt-1">Message is required</p>
+          }
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          [disabled]="form.invalid || submitting"
+          class="w-full rounded-xl bg-black text-white py-4 font-semibold hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {{ submitting ? 'Sending...' : 'Submit' }}
+        </button>
+
+        @if (successMsg) {
+          <p class="text-green-600 mt-2">{{ successMsg }}</p>
+        }
+
+        @if (errorMsg) {
+          <p class="text-red-600 mt-2">{{ errorMsg }}</p>
+        }
+      </form>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div class="mt-10 bg-white rounded-2xl border border-black/10 p-6">
+    <h2 class="text-3xl font-medium mb-4">Find us on maps</h2>
+
+    <div class="rounded-xl overflow-hidden border border-black/10">
+      <iframe
+        class="w-full h-[380px]"
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+        title="buddhinee jewellers"
+        aria-label="buddhinee jewellers"
+        src="https://maps.google.com/maps?q=buddhinee%20jewellers&t=m&z=16&output=embed&iwloc=near"
+      ></iframe>
+    </div>
+  </div>
+</section>
