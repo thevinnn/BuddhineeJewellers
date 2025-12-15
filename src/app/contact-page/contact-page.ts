@@ -48,4 +48,5 @@ export class ContactPage {
       this.form.reset();
     }, 700);
   }
+  title = 'Contact'
 }
