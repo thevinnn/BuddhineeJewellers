@@ -1,6 +1,6 @@
 import { Component, Input} from '@angular/core';
-import {AboutPage} from '../about-page/about-page';
-import {ContactPage} from '../contact-page/contact-page';
+import {AboutPage} from '../../../pages/about-page/about-page';
+import {ContactPage} from '../../../pages/contact-page/contact-page';
 
 @Component({
   selector: 'app-title',

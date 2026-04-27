@@ -1,0 +1,11 @@
+<figure class="overflow-hidden group cursor-pointer">
+  <div class="aspect-square overflow-hidden bg-gray-100">
+    <img
+      [src]="product().imageUrl"
+      [alt]="product().caption"
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+  </div>
+  <figcaption class="text-xs text-center py-3 text-gray-600 px-2">
+    {{ product().caption }}
+  </figcaption>
+</figure>

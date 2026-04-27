@@ -1,0 +1,49 @@
+<header class="absolute top-0 left-0 w-full z-50 border-0">
+  <nav class="max-w-4xl mx-auto px-6 py-4 relative border-0">
+    <div class="flex items-center justify-between">
+      <!-- Brand -->
+      <div class="flex items-center gap-3">
+        <a href="" class="flex items-center gap-3">
+          <img src="cropped-BJ-logo-transparent.png" alt="Buddhinee Jewellers logo" class="h-19 md:h-14">
+          <span class="text-white text-xs md:text-sm leading-tight max-w-[150px] md:max-w-none opacity-85">
+      Your Intelligent Choice for Fine Jewellery
+    </span>
+        </a>
+      </div>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-7">
+        <a href="" class="text-white/80 hover:text-[#bea328] text-xs uppercase tracking-widest transition-colors">Home</a>
+        <a href="about" class="text-white/80 hover:text-[#bea328] text-xs uppercase tracking-widest transition-colors">About</a>
+        <a href="products" class="text-white/80 hover:text-[#bea328] text-xs uppercase tracking-widest transition-colors">Products</a>
+        <a href="contact" class="text-white/80 hover:text-[#bea328] text-xs uppercase tracking-widest transition-colors">Contact</a>
+      </div>
+
+      <!-- Hamburger (mobile only) -->
+      <button
+        class="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none cursor-pointer"
+        (click)="toggleMenu()"
+        aria-label="Toggle menu"
+      >
+        <span class="block w-6 h-px bg-white/85 transition-transform duration-300"
+              [class.rotate-45]="menuOpen" [class.translate-y-[6.5px]]="menuOpen"></span>
+        <span class="block w-6 h-px bg-white/85 transition-opacity duration-300"
+              [class.opacity-0]="menuOpen"></span>
+        <span class="block w-6 h-px bg-white/85 transition-transform duration-300"
+              [class.-rotate-45]="menuOpen" [class.-translate-y-[6.5px]]="menuOpen"></span>
+      </button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div
+      class="md:hidden overflow-hidden transition-all duration-300 bg-black/95"
+      [style.max-height]="menuOpen ? '256px' : '0px'"
+      [style.border-top]="menuOpen ? '1px solid rgba(190,163,40,0.3)' : 'none'"
+    >
+      <a href="" class="block px-6 py-4 text-white/85 text-xs uppercase tracking-widest border-b border-white/5 hover:text-[#bea328]">Home</a>
+      <a href="about" class="block px-6 py-4 text-white/85 text-xs uppercase tracking-widest border-b border-white/5 hover:text-[#bea328]">About</a>
+      <a href="products" class="block px-6 py-4 text-white/85 text-xs uppercase tracking-widest border-b border-white/5 hover:text-[#bea328]">Products</a>
+      <a href="contact" class="block px-6 py-4 text-white/85 text-xs uppercase tracking-widest hover:text-[#bea328]">Contact</a>
+    </div>
+  </nav>
+</header>

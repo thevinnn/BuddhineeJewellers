@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import {Title} from '../title/title';
+import {Title} from '../../components/shared/title/title';
 
 @Component({
   selector: 'app-contact-page',
